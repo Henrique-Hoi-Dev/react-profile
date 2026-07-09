@@ -36,7 +36,7 @@ export const personalInfo = {
   name: 'Henrique Hoinacki',
   title: 'Desenvolvedor Full Stack JavaScript | NodeJS | ReactJS | VueJS',
   location: 'Realeza, Paraná – Brasil',
-  email: 'riqueah@gmail.com',
+  email: 'henrique.hoinacki.94@gmail.com',
   phone: '(46) 991195068',
   linkedin: 'https://linkedin.com/in/henrique-hoinacki-a98b851a5',
   github: 'https://github.com/Henrique-Hoi-Dev',
