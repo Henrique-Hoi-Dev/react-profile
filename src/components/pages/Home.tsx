@@ -216,7 +216,6 @@ const Home = () => {
               variants={heroContainer}
               initial="hidden"
               animate={heroState}
-              className="hidden sm:block"
             >
               <motion.div variants={heroItem}>
                 <TerminalCard />
