@@ -3,7 +3,13 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter Variable', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk Variable', 'Space Grotesk', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono Variable', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
       colors: {
+        surface: '#0b1020',
         primary: {
           50: '#f0f9ff',
           100: '#e0f2fe',

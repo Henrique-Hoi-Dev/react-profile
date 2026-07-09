@@ -1,5 +1,19 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import TechnologyCard from '../molecules/TechnologyCard';
+
+const gridVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: 'easeOut' },
+  },
+};
 
 const TechnologiesSection = () => {
   const technologies = [
@@ -23,22 +37,23 @@ const TechnologiesSection = () => {
         className="max-w-6xl mx-auto px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          Tecnologias
-        </h2>
+        <p className="font-mono text-sm text-primary-400 text-center mb-3">
+          {'// stack'}
+        </p>
+        <h2 className="section-title text-center block mb-12">Tecnologias</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          {technologies.map((tech) => (
+            <motion.div key={tech.name} variants={itemVariants}>
               <TechnologyCard
                 name={tech.name}
                 icon={tech.icon}
@@ -46,7 +61,7 @@ const TechnologiesSection = () => {
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );

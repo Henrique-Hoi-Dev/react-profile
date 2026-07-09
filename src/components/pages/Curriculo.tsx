@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa';
 import {
   personalInfo,
+  getAge,
   summary,
   experiences,
   projects,
@@ -16,6 +17,24 @@ import {
   certifications,
   skills,
 } from '../../data/curriculum';
+
+const printStyles = `
+  @media print {
+    @page {
+      size: A4;
+      margin: 14mm 12mm;
+    }
+    body {
+      background: #fff !important;
+    }
+    .no-print {
+      display: none !important;
+    }
+    a {
+      color: inherit;
+    }
+  }
+`;
 
 const styleDoc = {
   fontFamily: 'Calibri, Arial, sans-serif',
@@ -38,6 +57,8 @@ const Curriculo = () => {
           content="Currículo profissional de Henrique Hoinacki - Desenvolvedor Backend"
         />
       </Helmet>
+      <style>{printStyles}</style>
+      <div style={{ background: '#fff', minHeight: '100vh' }}>
       <div style={styleDoc}>
         {/* Cabeçalho */}
         <div
@@ -120,6 +141,10 @@ const Curriculo = () => {
                 GitHub
               </a>
             </span>
+          </div>
+          <div style={{ fontSize: 14, marginTop: 8, color: '#444' }}>
+            {personalInfo.nationality}, {getAge()} anos,{' '}
+            {personalInfo.maritalStatus}. Idiomas: {personalInfo.languages}.
           </div>
         </div>
 
@@ -273,7 +298,7 @@ const Curriculo = () => {
         <hr style={{ margin: '24px 0' }} />
 
         {/* Botão Voltar */}
-        <div style={{ marginTop: 24 }}>
+        <div className="no-print" style={{ marginTop: 24 }}>
           <a
             href="/"
             style={{
@@ -299,6 +324,7 @@ const Curriculo = () => {
           © {new Date().getFullYear()} Henrique Hoinacki. Todos os direitos
           reservados.
         </div>
+      </div>
       </div>
     </>
   );

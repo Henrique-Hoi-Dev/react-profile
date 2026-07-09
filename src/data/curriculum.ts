@@ -35,12 +35,34 @@ export interface Skill {
 export const personalInfo = {
   name: 'Henrique Hoinacki',
   title: 'Desenvolvedor Full Stack JavaScript | NodeJS | ReactJS | VueJS',
-  location: 'Santo André, São Paulo – Brasil',
+  location: 'Realeza, Paraná – Brasil',
   email: 'riqueah@gmail.com',
   phone: '(46) 991195068',
   linkedin: 'https://linkedin.com/in/henrique-hoinacki-a98b851a5',
   github: 'https://github.com/Henrique-Hoi-Dev',
   whatsapp: 'https://wa.me/5546991195068',
+  birthDate: '1994-12-20',
+  nationality: 'Brasileiro',
+  maritalStatus: 'solteiro, sem filhos',
+  languages: 'Português (nativo), Inglês (básico)',
+};
+
+export const getAge = (): number => {
+  const birth = new Date(`${personalInfo.birthDate}T00:00:00`);
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+};
+
+// Início da carreira como dev (Sponte, outubro 2020)
+export const getYearsAsDeveloper = (): number => {
+  const start = new Date('2020-10-01T00:00:00');
+  const diff = Date.now() - start.getTime();
+  return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
 };
 
 export const summary = {

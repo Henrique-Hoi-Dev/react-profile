@@ -20,22 +20,22 @@ const CurriculumButtons = ({ className = '' }: CurriculumButtonsProps) => {
     >
       <button
         onClick={handleDownload}
-        className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg hover:border hover:border-primary-300"
+        className="btn-primary"
         aria-label="Download do currículo em formato PDF"
         title="Download do currículo em formato PDF"
       >
-        <FaFilePdf className="mr-2" />
-        📄 Baixar Currículo em PDF
+        <FaFilePdf className="mr-2" aria-hidden />
+        Baixar Currículo em PDF
       </button>
 
       <a
         href="/curriculo"
-        className="inline-flex items-center justify-center bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg hover:border hover:border-gray-400"
+        className="btn-secondary"
         aria-label="Visualizar currículo em página estruturada"
         title="Visualizar currículo em página estruturada"
       >
-        <FaGlobe className="mr-2" />
-        🌐 Ver Currículo em Página Web
+        <FaGlobe className="mr-2" aria-hidden />
+        Ver Currículo em Página Web
       </a>
     </div>
   );
